@@ -1,0 +1,3 @@
+ID,First Name,Middle Name,Last Name,Role,Department,Education Level,Specialization,Phone,Address,Region,City,Nationality,Date of Birth,Gender,Marital Status,National ID,SSN,Military Service,Email,Created At
+11,Ahmad,Mohamad,Lotfy,Engineer,Operations,Bcs,Engineering,12345678910,1 address st.,region1,Cairo,Egypt,1990-08-26,male,single,123456789101112,12345689,Exempted,lotfy@email.com,2025-06-08 15:28:17
+12,Mohamed,Mosad,Taha,Engineer,Operations,Bcs,Engineering,12345562910,2 address st.,region2,Cairo,Egypt,1990-08-26,male,Married,123456789101113,12345610,Exempted,taha@email.com,2025-06-08 15:32:21

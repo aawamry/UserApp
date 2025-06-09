@@ -1,0 +1,71 @@
+<body>
+	<%- include('partials/header') %>
+	<h2 class="mb-4"><%= title %></h2>
+	<main>
+		<div class="card shadow-sm mb-4">
+			<div class="card-header bg-primary text-white">
+				<h5 class="mb-0"><%= user.firstName %> <%= user.middleName %> <%= user.lastName %></h5>
+			</div>
+
+			<div class="card-body">
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>ID:</strong> <%= user.id %></div>
+					<div class="col-md-6"><strong>Role:</strong> <%= user.role %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>Department:</strong> <%= user.department %></div>
+					<div class="col-md-6"><strong>Education Level:</strong> <%= user.educationLevel %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>Specialization:</strong> <%= user.specialization %></div>
+					<div class="col-md-6">
+						<strong>Phone:</strong> <%= Array.isArray(user.phone) ? user.phone.join(", ") : user.phone %>
+					</div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>Address:</strong> <%= user.address %></div>
+					<div class="col-md-6"><strong>Region:</strong> <%= user.region %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>City:</strong> <%= user.city %></div>
+					<div class="col-md-6"><strong>Nationality:</strong> <%= user.nationality %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>Date of Birth:</strong> <%= user.dateOfBirth %></div>
+					<div class="col-md-6"><strong>Gender:</strong> <%= user.gender %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>Marital Status:</strong> <%= user.maritalStatus %></div>
+					<div class="col-md-6"><strong>National ID:</strong> <%= user.nationalId %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>Social Security Number:</strong> <%= user.socialSecurityNumber %></div>
+					<div class="col-md-6"><strong>Military Service Status:</strong> <%= user.militaryServiceStatus %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>Personal Email:</strong> <%= user.personalEmail %></div>
+					<div class="col-md-6"><strong>Created At:</strong> <%= user.created_at %></div>
+				</div>
+			</div>
+
+			<div class="card-footer d-flex justify-content-between">
+				<a href="/users" class="btn btn-secondary">← Back to List</a>
+				<div>
+					<a href="/users/<%= user.id %>/edit" class="btn btn-warning me-2">Edit</a>
+					<form action="/users/<%= user.id %>?_method=DELETE" method="POST" class="d-inline">
+						<button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+	<%- include('partials/footer') %>
+</body>

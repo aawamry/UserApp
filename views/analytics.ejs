@@ -1,0 +1,103 @@
+<body>
+	<%- include('partials/header') %>
+	<main>
+		<div class="container mt-5">
+			<h1 class="mb-5 text-center"><%= title %></h1>
+
+			<!-- Total Users -->
+			<div class="row mb-5 justify-content-center">
+				<div class="col-md-6">
+					<div class="card shadow-sm p-4 text-center">
+						<h4>Total Users</h4>
+						<p class="display-4 fw-bold"><%= totalUsers %></p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Tables -->
+			<div class="row gy-4">
+				<div class="col-md-6">
+					<h5 class="mb-3 border-bottom pb-2">Gender Distribution</h5>
+					<table class="table table-striped table-hover table-bordered">
+						<thead class="table-light">
+							<tr>
+								<th>Gender</th>
+								<th class="text-end">Count</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for (let gender in genderCounts) { %>
+							<tr>
+								<td><%= gender %></td>
+								<td class="text-end"><%= genderCounts[gender] %></td>
+							</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="col-md-6">
+					<h5 class="mb-3 border-bottom pb-2">Department Distribution</h5>
+					<table class="table table-striped table-hover table-bordered">
+						<thead class="table-light">
+							<tr>
+								<th>Department</th>
+								<th class="text-end">Count</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for (let dept in departmentCounts) { %>
+							<tr>
+								<td><%= dept %></td>
+								<td class="text-end"><%= departmentCounts[dept] %></td>
+							</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="col-md-6">
+					<h5 class="mb-3 border-bottom pb-2">City Distribution</h5>
+					<table class="table table-striped table-hover table-bordered">
+						<thead class="table-light">
+							<tr>
+								<th>City</th>
+								<th class="text-end">Count</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for (let city in cityCounts) { %>
+							<tr>
+								<td><%= city %></td>
+								<td class="text-end"><%= cityCounts[city] %></td>
+							</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="col-md-6">
+					<h5 class="mb-3 border-bottom pb-2">Role Distribution</h5>
+					<table class="table table-striped table-hover table-bordered">
+						<thead class="table-light">
+							<tr>
+								<th>Role</th>
+								<th class="text-end">Count</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for (let role in roleCounts) { %>
+							<tr>
+								<td><%= role %></td>
+								<td class="text-end"><%= roleCounts[role] %></td>
+							</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<%- include('partials/footer') %>
+</body>
