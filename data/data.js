@@ -2,6 +2,7 @@ import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs/promises';
 import { createUserRecruitmentTable } from './queries.js';
 
 class UserDatabase {
@@ -39,6 +40,25 @@ class UserDatabase {
 		console.log('🧱 Attempting to create User Recruitment table...');
 		await this.db.run(createUserRecruitmentTable());
 		console.log('✅ User Recruitment table created or already exists.');
+	}
+
+	// -------------------------- Backup Database --------------------------
+	async backup(backupFolder = './backups') {
+		try {
+			await fs.mkdir(backupFolder, { recursive: true });
+
+			const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+			const fileName = `backup-${timestamp}.db`;
+			const backupPath = path.join(backupFolder, fileName);
+
+			await fs.copyFile(this.dbPath, backupPath);
+
+			console.log(`✅ Database backup created at ${backupPath}`);
+			return backupPath;
+		} catch (error) {
+			console.error('❌ Failed to back up database:', error);
+			throw error;
+		}
 	}
 
 	// -------------------------- Get Singleton DB Instance --------------------------
